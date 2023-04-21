@@ -70,7 +70,9 @@ const Stage1 = () => {
                   </li>
                 ))}
               </ul>
-              <div className="action_button" onClick={()=>context.next}>Next</div>
+              <div className="action_button" onClick={context.next}>
+                Next
+              </div>
             </div>
           </>
         ) : null}

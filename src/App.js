@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { MyContext } from "./Context/context";
 import Stage1 from "./components/stage_1";
 import Stage2 from "./components/stage_2";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./styles/app.scss";
 class App extends Component {
