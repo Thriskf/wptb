@@ -7,14 +7,27 @@ class MyProvider extends Component {
     stage: 1,
     players: [],
     result: "",
-  }; 
-
-  addPlayer = (playerName) => {
-    this.setState((prevState)=>({
-      players: [...prevState.players,playerName]
-    }))
   };
 
+  addPlayer = (playerName) => {
+    this.setState((prevState) => ({
+      players: [...prevState.players, playerName],
+    }));
+  };
+
+  removePlayer = (idx) => {
+    let newPlay = this.state.players;
+    newPlay.splice(idx, 1);
+    this.setState({ players: newPlay });
+  };
+  next = () => {
+    const { players } = this.state;
+    if (players.length < 2) {
+      alert("error");
+    } else {
+      alert("stage 2");
+    }
+  };
   render() {
     return (
       <MyContext.Provider
@@ -22,6 +35,8 @@ class MyProvider extends Component {
           state: this.state,
           addPlayer: this.addPlayer,
           result: this.state.result,
+          removePlayer: this.removePlayer,
+          Next: this.next,
         }}
       >
         {this.props.children}
