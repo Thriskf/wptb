@@ -28,13 +28,17 @@ class MyProvider extends Component {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
       });
-    } else {
-     toast.success("next", {
-       position: toast.POSITION.TOP_CENTER,
-       autoClose: 2000,
-     });
+    }
+    else {
+      this.setState({ stage: 2 }, () => {
+        setTimeout(()=>{this.getLoser()},2000)
+      });
     }
   };
+  getLoser = () => {
+    const {players} = this.state
+    this.setState({result:players[Math.floor(Math.random()*players.length)]})
+  }
   render() {
     return (
       <>
@@ -42,7 +46,6 @@ class MyProvider extends Component {
           value={{
             state: this.state,
             addPlayer: this.addPlayer,
-            result: this.state.result,
             removePlayer: this.removePlayer,
             next: this.next,
           }}
