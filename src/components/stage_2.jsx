@@ -9,8 +9,14 @@ const Stage2 = () => {
           <h3>The looser is:</h3>
           <div>{context.state.result}</div>
         </div>
-        <div className="action_button"> Start Over</div>
-        <div className="action_button btn_2"> Get New Loser</div>
+        <div className="action_button" onClick={context.newGame}>
+          {" "}
+          Start Over
+        </div>
+        <div className="action_button btn_2" onClick={context.newLoser}>
+          {" "}
+          Get New Loser
+        </div>
       </>
     );
 }
